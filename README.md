@@ -30,3 +30,9 @@ und dass sie automatisch installiert wird.
 Die Hauptseite ist die index.php. Die wichtigste Seite für das Bearbeiten der Ampeln ist die pages/ampel.php.
 
 Neue Seiten müssen in der selftest.php hinzugefügt werden.
+
+Außerdem bitte 
+
+> ln -s pre-commit .git/hooks/pre-commit
+
+machen, damit der Versionscounter automatisch hochgezählt wird.
