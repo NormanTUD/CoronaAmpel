@@ -586,24 +586,6 @@ a, a:visited, a:hover, a:active {
 	display: none;
 }
 
-
-.commentbox_revealed {
-	display: block !important;
-}
-
-.commentbox {
-	width: <?php print get_setting('comment_box_width'); ?>;
-	min-width: <?php print get_setting('comment_box_width'); ?>;
-	overflow-wrap: break-word;
-	display: none;
-}
-
-
-.commentbox_map {
-	width: 100%;
-	overflow-wrap: break-word;
-}
-
 .square {
 	min-width: 400px;
 	min-height: 60px;
@@ -637,11 +619,6 @@ a, a:visited, a:hover, a:active {
 	position: fixed; 
 	top: 0px;
 	display: block;
-}
-
-#wartungstabelle_thead.sticky {
-	top: 0px;
-	position: sticky;
 }
 
 .selectboxstatus {
@@ -724,21 +701,10 @@ div.spinnercontainer2 {
 	font-size: 20px;
 }
 
-.hr_wartungstabelle {
-         border: none;
-         border-top-color: blue;
-         border-top-style: dashed;
-         border-top-width: 3px
-}
-
 #mainlogo {
 	left: -5px;
 	top: 0px;
 	position: relative;
-}
-
-.anlage_th {
-	min-width: 100px;
 }
 
 .write_manually {
@@ -756,17 +722,6 @@ div.spinnercontainer2 {
 .no_decoration:visited {
 	text-decoration: none;
 	color: white;
-}
-
-.wartungstabelle_column {
-	font-size: <?php print get_setting("monat_th_size"); ?>px;
-	min-width: <?php print get_setting("min_width_column"); ?>px;
-}
-
-.wartungstabelle_column_color {
-	font-size: <?php print get_setting("monat_th_size"); ?>px;
-	min-width: <?php print get_setting("min_width_column"); ?>px;
-	background-color: <?php print get_setting("active_month_column_color"); ?>;
 }
 
 .line_tr {

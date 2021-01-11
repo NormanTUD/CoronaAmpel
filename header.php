@@ -65,7 +65,6 @@
 		<script src="data/main.js"></script>
 		<script src="data/color-hash.js"></script>
 		<script src="data/jscolor.js"></script>
-		<script src="data/scroll.js"></script>
 		<script>
 			function hide_lines_not_these_anlage_id (anlagen_ids) {
 				if (anlagen_ids === undefined || anlagen_ids === null) {
@@ -188,17 +187,5 @@
 			       	});
 			}
 		</script>
-
-<?php
-		if(
-			get_get("page") == get_page_id_by_filename("anlagen.php") || 
-			get_get("page") == get_page_id_by_filename("ersatzteile.php") || 
-			get_get("page") == get_page_id_by_filename("kunden.php")
-		) {
-?>
-			<!--<script src="data/autosubmit.js"></script>-->
-<?php
-		}
-?>
 	</head>
 <body>
