@@ -1,0 +1,3 @@
+#!/bin/bash
+
+bash add_version_int.sh
