@@ -33,6 +33,6 @@ Neue Seiten müssen in der selftest.php hinzugefügt werden.
 
 Außerdem bitte 
 
-> ln -s pre-commit .git/hooks/pre-commit
+> ln -s $(pwd)/pre-commit $(pwd)/.git/hooks/pre-commit
 
 machen, damit der Versionscounter automatisch hochgezählt wird.
