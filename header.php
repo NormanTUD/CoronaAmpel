@@ -63,7 +63,6 @@
 		<script src="data/jquery-1.12.4.js"></script>
 		<script src="data/jquery-ui.js"></script>
 		<script src="data/main.js"></script>
-		<script src="data/color-hash.js"></script>
 		<script src="data/jscolor.js"></script>
 		<script>
 			function hide_lines_not_these_anlage_id (anlagen_ids) {
