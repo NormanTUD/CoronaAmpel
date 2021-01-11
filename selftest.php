@@ -29,7 +29,7 @@
 				"INSERT INTO `version` (git) VALUES (".esc(get_local_version()).")"
 			),
 			"fragen" => array(
-				"create table fragen (id int not null AUTO_INCREMENT, frage varchar(1000), antwort varchar(1000), show_ampel tinyint default 1, red tinyint default 0, yellow tinyint default 0, green tinyint default 0, primary key (id))",
+				"create table fragen (id int not null AUTO_INCREMENT, frage varchar(1000), antwort varchar(1000), show_ampel tinyint default 1, red tinyint default 0, yellow tinyint default 0, green tinyint default 0, quelle varchar(1000), grundrechtseinschraenkung varchar(1000), primary key (id))",
 				"insert into fragen (frage) values (".esc("Darf ich rausgehen?").")",
 				"insert into fragen (frage) values (".esc("Darf ich meine Freunde treffen?").")",
 				"insert into fragen (frage) values (".esc("Wie viele Freunde darf ich treffen?").")",

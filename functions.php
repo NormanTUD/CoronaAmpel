@@ -192,7 +192,11 @@
 				$yellow = get_post("yellow") ? 1 : 0;
 				$green = get_post("green") ? 1 : 0;
 
-				update_frage($frage_id, $frage, $antwort, $show_ampel, $red, $yellow, $green);
+
+				$quelle = get_post("quelle");
+				$grundrechtseinschraenkung = get_post("grundrechtseinschraenkung");
+
+				update_frage($frage_id, $frage, $antwort, $show_ampel, $red, $yellow, $green, $quelle, $grundrechtseinschraenkung);
 			}
 		}
 
@@ -330,7 +334,10 @@
 				$yellow = get_post("yellow") ? 1 : 0;
 				$green = get_post("green") ? 1 : 0;
 
-				create_frage($frage, $antwort, $show_ampel, $red, $yellow, $green);
+				$quelle = get_post("quelle");
+				$grundrechtseinschraenkung = get_post("grundrechtseinschraenkung");
+
+				create_frage($frage, $antwort, $show_ampel, $red, $yellow, $green, $quelle, $grundrechtseinschraenkung);
 			}
 
 			if(get_post('update_setting')) {
@@ -2852,13 +2859,13 @@
 		return !!get_single_value_from_query("select show_ampel from fragen where id = ".esc($frage_id));
 	}
 
-	function update_frage($frage_id, $frage, $antwort, $show_ampel, $red, $yellow, $green) {
-		$update_frage_query = "update fragen set frage = ".esc($frage).", antwort = ".esc($antwort).", show_ampel = ".esc($show_ampel).", red = ".esc($red).", yellow = ".esc($yellow).", green = ".esc($green)." where id = ".esc($frage_id);
+	function update_frage($frage_id, $frage, $antwort, $show_ampel, $red, $yellow, $green, $quelle, $grundrechtseinschraenkung) {
+		$update_frage_query = "update fragen set frage = ".esc($frage).", antwort = ".esc($antwort).", show_ampel = ".esc($show_ampel).", red = ".esc($red).", yellow = ".esc($yellow).", green = ".esc($green).", quelle = ".esc($quelle).", grundrechtseinschraenkung = ".esc($grundrechtseinschraenkung)." where id = ".esc($frage_id);
 		rquery($update_frage_query);
 	}
 
-	function create_frage($frage, $antwort, $show_ampel, $red, $yellow, $green) {
-		$create_frage_query = "insert into fragen (frage, antwort, show_ampel, red, yellow, green) values (".multiple_esc_join(array($frage, $antwort, $show_ampel, $red, $yellow, $green)).")";
+	function create_frage($frage, $antwort, $show_ampel, $red, $yellow, $green, $quelle, $grundrechtseinschraenkung) {
+		$create_frage_query = "insert into fragen (frage, antwort, show_ampel, red, yellow, green, quelle, grundrechtseinschraenkung) values (".multiple_esc_join(array($frage, $antwort, $show_ampel, $red, $yellow, $green, $quelle, $grundrechtseinschraenkung)).")";
 		rquery($create_frage_query);
 	}
 
