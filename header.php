@@ -196,7 +196,7 @@
 			get_get("page") == get_page_id_by_filename("kunden.php")
 		) {
 ?>
-			<script src="data/autosubmit.js"></script>
+			<!--<script src="data/autosubmit.js"></script>-->
 <?php
 		}
 ?>
