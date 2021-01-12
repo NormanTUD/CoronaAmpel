@@ -1,7 +1,14 @@
 <?php
 	$GLOBALS['dbname'] = 'coronaampel';
 
-	$dbfile = '/etc/vvzdbpw';
+	$dbfile = '/etc/dbpw';
+
+	if(!file_exists($dbfile)) {
+		$dbfile_windows = 'C:\\dbpw';
+		if(file_exists($dbfile_windows)) {
+			$dbfile = $dbfile_windows;
+		}
+	}
 
 	if(file_exists($dbfile)) {
 		$vvzdbpw = explode("\n", file_get_contents($dbfile))[0];

@@ -14,7 +14,7 @@ was aktuell erlaubt ist und was nicht.
 Damit die Seite funktioniert, braucht man eine PHP-Instanz (z.B. mit Apache) und eine MySQL- oder MariaDB-Datenbank auf Linux.
 Das Passwort für die MariaDB muss in der einzigen Zeile in
 
-> /etc/vvzdbpw
+> /etc/dbpw
 
 stehen. Wenn das der Fall ist und die Dateien auf den Webserver kopiert worden sind, kann man einmalig im
 Browser zur Installation die /admin.php aufrufen. Damit werden automatisch die DB-Tabellen eingerichtet und konfiguriert.
