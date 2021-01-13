@@ -12,6 +12,12 @@
 		);
 	}
 
+	if(empty($fragen))
+	{
+		print "Es wurden noch keine Fragen im Adminbereich angelegt.";
+		return;
+	}
+
 	foreach ($fragen as $this_frage) {
 		$frage_id = $this_frage["id"];
 		$frage = $this_frage["frage"];
