@@ -47,6 +47,8 @@
 							<textarea width="200" height="100" name="antwort"><?php print htmlentities(get_antwort($frage_id)); ?></textarea>
 							<input type="text" name="quelle" value="<?php print htmlentities($quelle); ?>" placeholder="Quelle" />
 							<input type="text" name="grundrechtseinschraenkung" value="<?php print htmlentities($grundrechtseinschraenkung); ?>" placeholder="Grundrechtseinschränkung" />
+							<input type="text" name="keywords" class="keywords_input" placeholder="Keyword eingeben" />
+							<div class="keyword_holder"></div>
 						</td>
 						<td>
 							<input type="submit" value="Speichern" />
@@ -72,6 +74,8 @@
 						<textarea placeholder="Neue Antwort" width="200" height="100" name="antwort"></textarea>
 						<input type="text" name="quelle" placeholder="Quelle" />
 						<input type="text" name="grundrechtseinschraenkung" placeholder="Grundrechtseinschränkung" />
+						<input type="text" name="keywords" class="keywords_input" placeholder="Keyword eingeben" />
+						<div class="keyword_holder"></div>
 					</td>
 					<td>
 						<input type="submit" value="Speichern" />
@@ -80,6 +84,8 @@
 			</table>
 		</form><br>
 	</div>
+
+	<script type="text/javascript" src="js/ampel.js"></script>
 <?php
 	}
 ?>
