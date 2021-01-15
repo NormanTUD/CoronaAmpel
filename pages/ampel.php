@@ -17,11 +17,21 @@
 		$fragen_query = 'select id, frage, quelle, grundrechtseinschraenkung from fragen';
 		$result = rquery($fragen_query);
 		while ($row = mysqli_fetch_row($result)) {
+			$keywords = array();
+
+			$get_keywords_query = 'SELECT keyword.keyword FROM keyword WHERE keyword.id IN (SELECT keyword_id FROM frage_keyword WHERE frage_keyword.frage_id = '.esc($row[0]).")";
+			$get_keywords_query_result = rquery($get_keywords_query);
+			
+			while($keyword_query_row = mysqli_fetch_row($get_keywords_query_result)) {
+				array_push($keywords, $keyword_query_row[0]);
+			}
+
 			$fragen[] = array(
 				"id" => $row[0],
 				"frage" => $row[1],
 				"quelle" => $row[2],
-				"grundrechtseinschraenkung" => $row[3]
+				"grundrechtseinschraenkung" => $row[3],
+				"keywords" => $keywords
 			);
 		}
 
@@ -31,6 +41,7 @@
 			$frage = $this_frage["frage"];
 			$quelle = $this_frage["quelle"];
 			$grundrechtseinschraenkung = $this_frage["grundrechtseinschraenkung"];
+			$keywords = $this_frage["keywords"];
 
 			$show_ampel = get_show_ampel($frage_id);
 
@@ -48,7 +59,8 @@
 							<input type="text" name="quelle" value="<?php print htmlentities($quelle); ?>" placeholder="Quelle" />
 							<input type="text" name="grundrechtseinschraenkung" value="<?php print htmlentities($grundrechtseinschraenkung); ?>" placeholder="Grundrechtseinschränkung" />
 							<input type="text" name="keywords" class="keywords_input" placeholder="Keyword eingeben" />
-							<div class="keyword_holder"></div>
+							<div class="keyword_input_holder"></div>
+							<div class="keyword_holder"><?php  foreach($keywords as $keyword) { echo ("<div class='keyword'>".$keyword."</div>"); }  ?></div>
 						</td>
 						<td>
 							<input type="submit" value="Speichern" />
@@ -75,6 +87,7 @@
 						<input type="text" name="quelle" placeholder="Quelle" />
 						<input type="text" name="grundrechtseinschraenkung" placeholder="Grundrechtseinschränkung" />
 						<input type="text" name="keywords" class="keywords_input" placeholder="Keyword eingeben" />
+						<div class="keyword_input_holder"></div>
 						<div class="keyword_holder"></div>
 					</td>
 					<td>

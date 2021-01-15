@@ -787,3 +787,20 @@ div.spinnercontainer2 {
 .einstellungen_td {
 	width: 400px;
 }
+
+.keyword {
+	border: 2px grey solid;
+    margin-bottom: 4px;
+}
+
+.keyword_delete {
+	position: relative;
+	top: 0;
+	right: 0;
+	text-align: center;
+	color: red;
+}
+
+.keyword_delete:hover {
+	cursor: pointer;
+}
