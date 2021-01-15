@@ -36,6 +36,12 @@
 				"insert into fragen (frage) values (".esc("Darf ich ohne Mundschutz radfahren?").")",
 				"insert into fragen (frage) values (".esc("Darf ich ohne Mundschutz Joggen?").")",
 				"insert into fragen (frage) values (".esc("Darf ich wieder Schwimmen gehen?").")"
+			),
+			"keyword" => array(
+				"CREATE TABLE keyword (id INT NOT NULL AUTO_INCREMENT, keyword VARCHAR(64), PRIMARY KEY (id))"
+			),
+			"frage_keyword" => array(
+				"CREATE TABLE frage_keyword (id INT NOT NULL AUTO_INCREMENT, frage_id INT NOT NULL, keyword_id INT NOT NULL, PRIMARY KEY (id), FOREIGN KEY (frage_id) REFERENCES fragen(id), FOREIGN KEY (keyword_id) REFERENCES keyword(id))"
 			)
 		);
 

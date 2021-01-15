@@ -195,8 +195,18 @@
 
 				$quelle = get_post("quelle");
 				$grundrechtseinschraenkung = get_post("grundrechtseinschraenkung");
+				
+				$keyword_sum = get_post("keyword_sum");
 
-				update_frage($frage_id, $frage, $antwort, $show_ampel, $red, $yellow, $green, $quelle, $grundrechtseinschraenkung);
+				$keywords = array();
+				
+				if($keyword_sum) {
+					for ($i=0; $i < $keyword_sum; $i++) {
+						array_push($keywords, get_post("keyword_" . $i));
+					}
+				}
+
+				update_frage($frage_id, $frage, $antwort, $show_ampel, $red, $yellow, $green, $quelle, $grundrechtseinschraenkung, $keywords);
 			}
 		}
 
@@ -2859,7 +2869,34 @@
 		return !!get_single_value_from_query("select show_ampel from fragen where id = ".esc($frage_id));
 	}
 
-	function update_frage($frage_id, $frage, $antwort, $show_ampel, $red, $yellow, $green, $quelle, $grundrechtseinschraenkung) {
+	function update_frage($frage_id, $frage, $antwort, $show_ampel, $red, $yellow, $green, $quelle, $grundrechtseinschraenkung, $keywords) {
+		$delete_existing_keywords = "DELETE FROM frage_keyword WHERE frage_id = ".esc($frage_id);
+		rquery($delete_existing_keywords);
+
+		foreach($keywords as $keyword)
+		{
+			$get_keyword_query = "SELECT keyword.id FROM keyword WHERE keyword.keyword = ".esc($keyword);
+			$keyword_id = get_single_value_from_query($get_keyword_query);
+
+			if(!$keyword_id)
+			{
+				$insert_keyword_query = "INSERT INTO keyword(keyword) VALUES (".esc($keyword).")";
+				rquery($insert_keyword_query);
+
+				$keyword_id = get_single_value_from_query($get_keyword_query);
+			}
+
+			if(!$keyword_id)
+			{
+				echo("Fehler beim einfügen der Keywords!");
+			}
+			else
+			{
+				$insert_frage_keyword_query = "INSERT INTO frage_keyword(frage_id, keyword_id) VALUES (".multiple_esc_join(array($frage_id, $keyword_id)).")";
+				rquery($insert_frage_keyword_query);
+			}
+		}
+
 		$update_frage_query = "update fragen set frage = ".esc($frage).", antwort = ".esc($antwort).", show_ampel = ".esc($show_ampel).", red = ".esc($red).", yellow = ".esc($yellow).", green = ".esc($green).", quelle = ".esc($quelle).", grundrechtseinschraenkung = ".esc($grundrechtseinschraenkung)." where id = ".esc($frage_id);
 		rquery($update_frage_query);
 	}
