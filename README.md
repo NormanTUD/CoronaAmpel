@@ -36,3 +36,7 @@ Außerdem bitte
 > ln -s $(pwd)/pre-commit $(pwd)/.git/hooks/pre-commit
 
 machen, damit der Versionscounter automatisch hochgezählt wird.
+
+# Thanks
+
+Vielen Dank an [Niklas Werner](https://github.com/PowerOfCreation) für seine Mitarbeit und seinen Rat!
