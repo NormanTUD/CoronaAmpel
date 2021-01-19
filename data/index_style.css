@@ -1,0 +1,7 @@
+.keyword {
+	margin-right: 5px;
+}
+
+.keyword_holder {
+	display: flex;
+}
