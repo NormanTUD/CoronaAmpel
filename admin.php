@@ -1,8 +1,4 @@
 <?php
-	$VERSION = file_get_contents("version");
-	$VERSION_INT = file_get_contents("version_int");
-	$VERSION = trim(preg_replace('/\s\s+/', ' ', $VERSION));
-	$VERSION_INT = trim(preg_replace('/\s\s+/', ' ', $VERSION_INT));
 	$GLOBALS['php_start'] = microtime(true);
 	if(file_exists('new_setup')) {
 		include('setup.php');
@@ -141,7 +137,6 @@
 <?php
 			}
 ?>
-			<br><span class="version_string">Version: <span class="version"><?php print $VERSION_INT; ?></span> (<span class="version"><?php print $VERSION; ?></span>)</span>
 <?php
 			$subconscious_data = array(
 				"Die Software ist perfekt",
