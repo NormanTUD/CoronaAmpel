@@ -1,5 +1,6 @@
 <?php
 	include("functions.php");
+	include("header.php");
 
 	$fragen_query = 'select id, frage, quelle, grundrechtseinschraenkung from fragen where antwort is not null or antwort != "" or red != 0 or yellow != 0 or green != 0';
 	$result = rquery($fragen_query);
@@ -57,3 +58,4 @@
 <?php
 	}
 ?>
+</html>
