@@ -31,12 +31,6 @@ Die Hauptseite ist die index.php. Die wichtigste Seite für das Bearbeiten der A
 
 Neue Seiten müssen in der selftest.php hinzugefügt werden.
 
-Außerdem bitte 
-
-> ln -s $(pwd)/pre-commit $(pwd)/.git/hooks/pre-commit
-
-machen, damit der Versionscounter automatisch hochgezählt wird.
-
 # Thanks
 
 Vielen Dank an [Niklas Werner](https://github.com/PowerOfCreation) für seine Mitarbeit und seinen Rat!
